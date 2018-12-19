@@ -394,4 +394,10 @@ reverse_sorted = sorted(full,reverse = True)
     
     ```
 
+  # 14. git
+
+  * git init으로 마스터 지정.
+
+  * rm -rf .git/ 으로 git  지정 탈퇴
+  * git commit -m ''~181218' 버젼만들기 VCS 버젼 컨트롤 시스템
   * 

@@ -55,12 +55,23 @@ if cor_number == 6:
                 print('1등 당첨')
                 self.rank[0] += 1
 # 2 등 : real & my 가 5개가 같고, my의 나머지 하나가 bonus_number
-
+elif cor_number == 5 and bonus_number == True
+                print('2등 당첨')
 # 3 등 : real & my 가 5개가 같다.
-
+elif cor_number == 5:
+                print('\t{:2} {:2} {:2} {:2} {:2} {:2}'.format(*i[:6]),end=' >>> ')
+                print('3등 당첨')
+                self.rank[0] += 1
 # 4 등 : real & my 가 4개가 같다.
-
+elif cor_number == 4:
+                print('\t{:2} {:2} {:2} {:2} {:2} {:2}'.format(*i[:6]),end=' >>> ')
+                print('4등 당첨')
+                self.rank[0] += 1
 # 5 등 : real & my 가 3개가 같다.
-
+elif cor_number == 3:
+                print('\t{:2} {:2} {:2} {:2} {:2} {:2}'.format(*i[:6]),end=' >>> ')
+                print('5등 당첨')
+                self.rank[0] += 1
 # 꽝
-
+else:
+        print('꽝')
