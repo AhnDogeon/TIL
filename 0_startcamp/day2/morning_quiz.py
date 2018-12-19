@@ -46,7 +46,7 @@ cities_temp = {
 # 광주 : ?
 # 구미 : ?
 
-### 선생님 답
+## 선생님 답
 
 for city in cities_temp: # 왼손으로 키만 꺼냅니다
     temperatures = cities_temp[city]
@@ -58,8 +58,8 @@ for key, value in cities_temp.items(): # 양손으로 둘 다 꺼냅니다
     avg_temperature = round(sum(value) / len(value), 2)
     print(key, avg_temperature)
 
-#  # 4. 도시중에 최근 3일간 가장 추웠던 곳, 가장 더웠던 곳
-#  # Hottest : ??, Coldest : ??
+ # 4. 도시중에 최근 3일간 가장 추웠던 곳, 가장 더웠던 곳
+ # Hottest : ??, Coldest : ??
 
 min_temp = []
 min_city = []
@@ -111,3 +111,23 @@ for x, va in enumerate(min_temp):
     if(min(min_temp) == va):
         b = x
 print('가장 온도가 낮은 곳은: ', min_city[b], '의 ', min(min_temp))
+
+### 선생님 답
+
+# all_temp에 모든 기온을 모은다.
+all_temp = []
+for key, value in cities_temp.items():
+    all_temp += value
+# all_temp에서 highest/lowest 를 찾는다.
+highest = max(all_temp)
+lowest = min(all_temp)
+# cities_temp 에서 highest/lowest 가 속한 도시를 찾는다.
+hottest = []
+coldest = []
+for key, value in cities_temp.items():
+    if highest in value:
+        hottest.append(key)
+    if lowest in value:
+        coldest.append(key)
+
+print(hottest, coldest)
