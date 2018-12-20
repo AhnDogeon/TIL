@@ -204,4 +204,47 @@ print(result)
     ## 결과는 [1,2,3] None
     ```
 
+* 다른 파일에 만들어둔 def 함수 쓰기 : import (def가 저장되어있는) 파일이름
+
+```python
+### math_functions.py 안에 있는 cube와 average 쓰기
+
+import math_functions
+
+print(math_functions.cube(5))
+print(math_functions.average([10,20,30,]))
+
+### 이렇게 하면 math_functions 안에 def 로 정의되어 있는 것이 다 딸려오고 실행된다 따라서 우리는
+from math_functions import cube, average
+
+print(cube(5))
+print(average([10,20,30,]))
+
+### 그렇게 해도 math_functions 의 메인문들이 실행이 된다
+def main():
+    my_score = [79, 84, 66, 93]
+    print(average(my_score))
+    print(cube(3))
+
+if __name__ == '__main__':
+    main()
+## 그럴 때 math_functions 에 위 구문을 넣어주면 해결
+
+
+
+
+
+```
+
+
+
+* ## 마지막 check_lotto 최종파일
+
+  * ```python
+    from lotto_functions import am_i_lucky, pick_lotto, get_lotto
+    
+    result = am_i_lucky(pick_lotto(), get_lotto(837))
+    print(result)
+    ```
+
 
