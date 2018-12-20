@@ -246,5 +246,3 @@ if __name__ == '__main__':
     result = am_i_lucky(pick_lotto(), get_lotto(837))
     print(result)
     ```
-
-
