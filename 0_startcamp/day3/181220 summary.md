@@ -250,3 +250,42 @@ if __name__ == '__main__':
     result = am_i_lucky(pick_lotto(), get_lotto(837))
     print(result)
     ```
+
+
+
+## 3. Flask 
+
+* c9 startcamp 폴더
+
+  * app.py 
+
+    ```python
+    from flask import Flask, jsonify # jsonify는 리스트나 딕셔너리를 flask가 받을 수 없어서
+    from random import sample
+    
+    
+    app = Flask(__name__)
+    
+    @app.route("/")
+    def index():
+        return 'Happy Hacking'
+        
+        
+    @app.route("/hi")
+    def hi():
+        return 'Hello SSAFY'
+        
+    @app.route("/pick_lotto")
+    def pick_lotto():
+        return jsonify(sample(range(1,46), 6)) ## jsonify는 리스트나 딕셔너리를 flask가 받을 수 없어서
+    
+    @app.route("/get_lotto")
+    def get_lotto():
+        data = {
+            'numbers' : [1,2,3,4,5,6],
+            'bonus' : 7
+        }
+        return jsonify(data)# jsonify는 리스트나 딕셔너리를 flask가 받을 수 없어서
+        
+    
+    ```
