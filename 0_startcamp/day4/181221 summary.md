@@ -60,7 +60,7 @@
   #     return jsonify(data)
       
   if __name__ == '__main__':
-      app.run(host='0.0.0.0', port=8080)
+      app.run(host='0.0.0.0', port=8080) ## 이 구문은 무조건 맨 밑에 있어야 함
       # $ export FLASK_ENV='development' 저장과 동시에 서버 새로고침
       # $ flask run -h 0.0.0.0 -p 8080
       # $ python3 app.py 로 바로 실행 가능
