@@ -20,9 +20,27 @@
 
   커맨드모드에서 h누르면 단축키
 
+```python
+#내 코드 최대공약수 최소공배수
+
+def gcd(a, b):
+    mod = a%b
+    while mod > 0:
+        a = b
+        b = mod
+        mod = a%b
+    return b
+
+def lcm(a, b):
+    return a*b//gcd(a,b)
+
+num1 = 4
+num2 = 3
 
 
-
+print(gcd(num1,num2))
+print(lcm(num1,num2))
+```
 
 
 
