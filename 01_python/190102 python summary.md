@@ -44,6 +44,16 @@ print(lcm(num1,num2))
 
 
 
+git bash에서
+
+cd TIL
+
+pwd
+
+git remote -v
+
+git add .
+
 
 
 
