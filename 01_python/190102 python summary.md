@@ -6,6 +6,18 @@
 
 ## 2. jupyter 노트북
 
+* ```
+  cd TIL
+  ls
+  cd 01_python
+  cd jupyter_notebooks
+  jupyter notebook
+  
+  #이렇게 쥬피터노트북 실행
+  ```
+
+* 
+
 * cd TIL(git bash 실행)
 
 * cd 01_python
@@ -54,9 +66,7 @@ git remote -v
 
 git add .
 
-
-
-
+* ## 사이트 python tutor 
 
 
 
