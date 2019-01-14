@@ -144,6 +144,140 @@ html 글자 두껍게 하기
 `<blockquote></blockquote>`: 인용구 블럭
 
 <ol> 순서가 있는 리스트
+## 190114 요약정리
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Learn HTML</title>
+        <style>
+            table, tr, td {
+                border: 1px solid darkgray;  # 한 줄 한 줄 스타일 입혀주지말고 맨 위에 style 로 전역으로 해줌
+            }
+        
+        </style>
+    </head>
+
+    <body>
+        <h1>프로그래밍 교육</h1>
+        <a href="https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%B4%EC%8D%AC" target="_blank"> # 클릭하면 특정 url로 이동 또는 target="_blank"로 다른 창 띄우기
+            <img src="./images/python.png" alt="python" width="50px" height="50px"> # src 다음 이미지가 있는 폴더주소나 이미지 자체 url로 이미지 삽입 가능, alt 다음은 이름인데 웬만하면 넣는게 좋음
+        </a>
+        <a href="https://ko.wikipedia.org/wiki/HTML5" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/220px-HTML5_logo_and_wordmark.svg.png" alt="html5" width="50px" height="50px">
+            <hr /> # 한 줄 긋는거
+        </a>
+        <section> # 파트나누는거
+            <h2>
+                <a href="https://docs.python.org" target="_blank">
+                    Python
+                </a>
+            </h2>
+            <h3>Number Type</h3>
+            <p>파이썬에서 숫자형은 아래와 같다</p>  # 문자열 삽입
+            <ol> # 순서가 있는 것.
+                <li>int</li> # li*4 탭 이렇게 연속 네 개 만들 수 있다. 리스트!
+                <li>float</li>
+                <li>complex</li>
+                <li>str</li>
+            </ol>
+
+            <h3>Sequence</h3>
+            <p>파이썬에서 시퀀스는 아래와 같다</p>
+            <strong>시퀀스는 for문을 돌릴 수 있다!</strong> # 강조
+            <ol>
+                <li>str</li>
+                <li>lits</li>
+                <li>tuple</li>
+                <li>range</li>
+            </ol>
+        </section>
+        <section>
+            <h2>
+                <a href="https://developer.mozilla.org" target="_blank">
+                    Web
+                </a>
+            </h2>
+            
+            <h3>Basic</h3>
+            <ul> # 순서 없는거 un order list
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+        </section>
+        <iframe width="800" height="760" src="https://www.youtube.com/embed/_hsrsmwHv0A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> # iframe으로 동영상 삽입 가능
+        <table> # 테이블로 표 만들기
+            <thead>
+                <td>점심메뉴</td> # 표 제목
+            </thead>
+            <tr> tr : row
+                <th></th> : 표 제일 첫 째줄에 있는 정보들
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+
+            </tr>
+            <tr>
+                <td>특식</td> #  table data
+                <td>초밥</td>
+                <td>바베큐</td>
+                <td>삼겹살</td>
+            </tr>
+            <tr>
+                <td>한식</td>
+                <td>육개장</td>
+                <td>미역국</td>
+                <td>삼계탕</td>
+            </tr>
+        </table>
+
+        <hr>8887ㅠ8
+        <h3>TimeTable</h3>
+        <table>
+            <tr>
+                <th>TIME</th>
+                <th>INDOOR</th>
+                <th colspan="2">OUTDOOR</th> #colspan : col 행 빈칸 2칸 늘려줌
+            </tr>
+            <tr>
+                <td></td>
+                <td>소극장</td>
+                <td>잔디마당</td>
+                <td>대공연장</td>
+            </tr>
+            <tr>
+                <td>10:00</td>
+                <td rowspan="2">안녕하신가영</td> row 열 빈칸 2칸 늘려줌
+                <td></td>
+                <td>10cm</td>
+            </tr>
+            <tr>
+                <td>13:00</td>
+                <td rowspan="2">선우정아</td>
+                <td rowspan="2">참깨와 솜사탕</td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td rowspan="2">크러쉬</td>
+                <td></td>
+                <td rowspan="2">폴킴</td>
+            </tr>
+        </table>
+    
+    </body>
+</html>
+```
+
+
+
 
 
 
