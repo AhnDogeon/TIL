@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div.control {
+            width: 300px;
+            height: 100px;
+            background-color: cornsilk;
+            border: 5px solid navy;
+             /* 정해진 구간에서 텍스트가 넘칠 때 */
+            overflow: hidden
+        }
+        div.box1 {
+            background-color: orange;
+            width: 100px;
+            height: 50px;
+            border: 5px solid red;
+            margin-top: 20px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            margin-left: 100px;
+            /* 시계방향으로 공간줌 */
+            padding: 10px 20px 30px 40px;
+        }
+        div.center {
+            border: 5px solid navy;
+            background-color: crimson;
+            /* width와 max_width 차이 */
+            /* width: 600px; */
+            /* 브라우저 크기에 따라 줄어들고 늘어남 */
+            max-width: 600px;
+            /* margin: auto; 는 가로기준으로 가운데 정렬이라고 보면 됨, 단 max_width가 있어야한다 */
+            margin: auto;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="control">
+        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+    </div>
+    <div class="box1">
+        This is div
+    </div>
+
+    <div class="center">
+            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+    </div>
+</body>
+</html>

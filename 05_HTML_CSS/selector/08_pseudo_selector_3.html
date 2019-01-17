@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* 가상 요소 셀렉터 pseudo element selector */
+        /* p 의 첫 글자 */
+        p::first-letter { font-size: 3em}
+        /* p 의 첫 줄 */
+        p::first-line { color: indianred;}
+        /* h1 요소의 앞에 */
+        h1::before {
+            content: " HTML5!!";
+            color: lightskyblue;
+        }
+        /* h1 요소의 뒤에 */
+        h1::after {
+            content: " !!CSS3";
+            color: lightsalmon;
+        }
+
+        ::selection {
+            color: maroon;
+            background: palegoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is heading</h1>
+    <p>
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    </p>
+</body>
+</html>

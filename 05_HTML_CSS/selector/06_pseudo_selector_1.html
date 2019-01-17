@@ -58,10 +58,19 @@
         /* ul 의 모든 자식 중에 뒤에서부터 짝수 번째 요소를 선택 */
         ul > :nth-last-child(2n) { color: mediumvioletred;}
 
+        /* p 요소의 부모 요소의 자식 요소 중 첫 번째 등장하는 p */
+        p:first-of-type { color: red;}
+        /* p 요소의 부모 요소의 자식 요소 중 마지막 등장하는 p */
+        p:last-of-type { color: blue;}
+        /* p 요소의 부모 요소의 자식 요소 중 두 번째 등장하는 p */
+        p:nth-of-type(2) { color: green;}
+        /* p 요소의 부모 요소의 자식 요소 중 뒤에서 두 번째 등장하는 p */  
+        p:nth-last-of-type(2) {color: orange;}
+        /* p 중 첫째가 아니라 진짜 첫째가 p가 아니기에 brown이 안됨 */
+        p:first-child { background: brown;}
 
-        p:first-of-type { color: rebeccapurple;}
-
-        p:last-of-type { color: sienna;}
+    /* Negation pseudo selector (부정 셀렉터) */
+        input:not([type="password"]) { background: black;}
     </style>
 </head>
 <body>
@@ -77,14 +86,14 @@
     </div>
     
     <div>
-        <h2>This is Heading</h2>
+        <h2>This is Heading2</h2>
         <p>첫 번째 문단</p>
         <p>두 번째 문단</p>
         <p>세 번째 문단</p>
         <p>네 번째 문단</p>
 
         <div>
-            <h3>This is Heading</h3>
+            <h3>This is Heading3</h3>
             <p>첫 번째 문단</p>
             <p>두 번째 문단</p>
             <p>세 번째 문단</p>
