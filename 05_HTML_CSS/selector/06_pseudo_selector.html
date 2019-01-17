@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* a에 마우스를 올리면, */
+        a:hover {
+            font-weight: bold;
+        }
+        /* input 에 포커스가 가면, */
+        input:focus { background-color: orangered;}
+    /* Link Pseudo Selector, User action pseudo selector */
+        /* a링크를 방문하지 않았을 때 */
+        a:link {color:orchid;}
+        /* a링크를 방문했을 때 */
+        a:visited {color: black;}
+        /* a 요소를 클릭하고 있는 상태일 때 */
+        a:active {color: blue;}
+        /* input 타입이 text, password 인 요소들에 포커스가 갔을 때, */
+        input[type="text"]:focus,
+        input[type="password"]:focus{
+            color: white;
+        }
+    /* UI element state pseudo selector */
+        /* input 이 사용 가능할 때, input 요소 바로 뒤에 오는 형제 span을 선택 */
+        input:enabled + span {
+            color: blue;
+        }
+        /* input 이 사용 불가능할 때, input 요소 바로 뒤에 오는 형제 span을 선택 */
+        input:disabled + span {
+            color: grey;
+            text-decoration: line-through;
+        }
+        /* input 이 checked 상태일 때, input 요소 바로 뒤에 오는 형제 span을 선택 */
+        input:checked + span {
+            color: tomato;
+        }
+    /* Structural pseudo slector */
+        /* p 요소 중에서 sibling들 전체 중에서 첫 번째 자식을 선택 */
+        p:first-child { color: palevioletred;}
+        /* p 요소 중에서 sibling 들 전체 중에서 마지막 자식을 선택 */
+        p:last-child {color: peru;}
+
+        /* ol의 자식요소인 li 중에서 짝수번째 요소만을 선택 이런거에서 기준이 li가 아니라 몇 번째를 먼저 본다1! */
+        ol > li:nth-child(2n) { color: orangered;} 
+        /* ol의 자식 요소인 li 중에서 홀수번째 요소만을 선택, 홀 수 번째인데 걔가 li야?? */
+        ol > li:nth-child(2n+1) { color: royalblue;}
+        
+        /* ol의 자식 중에서 첫 번째 요소가 li이면, */
+        ol > li:first-child { color: red;}
+        /* ol의 자식 중에서 마지막 요소가 li이면, */
+        ol > li:last-child { color: blue;}
+        
+        /* ol의 자식 중에서 4번째가 li라면, */
+        ol > li:nth-child(4) {background:brown;}
+
+        /* ul 의 모든 자식 중에 뒤에서부터 홀 수 번째 요소를 선택 */
+        ul > :nth-last-child(2n+1) { color: mediumspringgreen;}
+        /* ul 의 모든 자식 중에 뒤에서부터 짝수 번째 요소를 선택 */
+        ul > :nth-last-child(2n) { color: mediumvioletred;}
+
+
+        p:first-of-type { color: rebeccapurple;}
+
+        p:last-of-type { color: sienna;}
+    </style>
+</head>
+<body>
+
+    <p>이 p 태그는 부모(body)의 첫 째 자식입니다.</p>
+
+    <h1>Welcome to my HOMEPAGE</h1>
+    <p>요 p 태그는 부모(body)의 첫 째 자식도 마지막 자식도 아닙니다. ㅠ</p>
+    
+    <div>
+            <p>이 p 태그는 부모(div)의 첫 째 자식입니다.</p>
+            <p>요 p 태그는 부모(div)의 마지막 자식이 맞습니다. ㅠ</p>
+    </div>
+    
+    <div>
+        <h2>This is Heading</h2>
+        <p>첫 번째 문단</p>
+        <p>두 번째 문단</p>
+        <p>세 번째 문단</p>
+        <p>네 번째 문단</p>
+
+        <div>
+            <h3>This is Heading</h3>
+            <p>첫 번째 문단</p>
+            <p>두 번째 문단</p>
+            <p>세 번째 문단</p>
+            <p>네 번째 문단</p>
+        </div>
+    </div>
+
+
+
+    <div>
+        <ol>
+            <li>Espresso</li>
+            <li>Americano</li>
+            <li>Caffe Latte</li>
+            <li>Caffe Mocha</li>
+            <li>Caramel Latte</li>
+            <li>Capuccino</li>
+        </ol>
+
+        <ul>
+            <li>Espresso</li>
+            <li>Americano</li>
+            <li>Caffe Latte</li>
+            <li>Caffe Mocha</li>
+            <li>Caramel Latte</li>
+            <li>Capuccino</li>
+        </ul>
+    </div>
+
+
+    <a href="#">Hover me</a>
+    <br><br>
+    <input type="text" placeholder="Focus me">
+
+    <div>
+        <input type="text" value="I'll be red when focused">
+        <input type="password" value="I'll be red when focused">
+    </div>
+    <hr>
+    <form action="">
+        <input type="radio" value="메뉴A" checked="checked">
+        <span>순두부</span><br>
+
+        <input type="radio" value="메뉴B">
+        <span>바베큐폭챱</span><br>
+
+        <input type="radio" value="굶기" disabled>
+        <span>쫄쫄 굶기</span><br>
+
+        <input type="checkbox" value="taxi" checked="checked">
+        <span>집에 택시</span><br>
+
+        <input type="checkbox" value="BM">
+        <span>집에 대중교통</span><br>
+
+        <input type="checkbox" value="Walk" disabled>
+        <span>집에 걸어가기</span><br>
+    </form>
+
+</body>
+</html>
