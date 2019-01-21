@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <title>Bootstrap</title>
+    <style>
+        div.content {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nav Bar START -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Git</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Python</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Nav Bar END -->
+    <div class="container content">
+        <!-- Form START -->
+        <form>
+            <div class="form-group">
+                <label for="inputEmail">Email address</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="passwordConfirmation">Password confirmation</label>
+                <input type="password" class="form-control" id="passwordConfirmation" placeholder="PasswordConfirmation">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- Form END -->
+
+        <!-- Cards START -->
+        <!-- 그리드로 세 개 옆에 정렬 col로!!-->
+        <div class="row content">
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <img src="http://ipengineer.net/wp-content/uploads/2015/04/git-logo-300x300.jpg" class="card-img-top"
+                        alt="git">
+                    <div class="card-body">
+                        <h5 class="card-title">Git</h5>
+                        <p class="card-text">Git은 분산 버전 관리 시스템이다.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <img src="http://ipengineer.net/wp-content/uploads/2015/04/git-logo-300x300.jpg" class="card-img-top"
+                        alt="git">
+                    <div class="card-body">
+                        <h5 class="card-title">Git</h5>
+                        <p class="card-text">Git은 분산 버전 관리 시스템이다.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <img src="http://ipengineer.net/wp-content/uploads/2015/04/git-logo-300x300.jpg" class="card-img-top"
+                        alt="git">
+                    <div class="card-body">
+                        <h5 class="card-title">Git</h5>
+                        <p class="card-text">Git은 분산 버전 관리 시스템이다.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cards END -->
+
+    </div>
+
+</body>
+
+</html>
