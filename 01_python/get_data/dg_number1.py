@@ -1,7 +1,7 @@
 import requests
 import csv
 
-key = ''
+key = '34875d9adaa52a3ed167ba3472d72b01'
 
 date = [20190113, 20190106, 20181230, 20181223, 20181216, 20181209, 20181202, 20181125, 20181118, 20181111]
 
@@ -14,7 +14,7 @@ for weekend in date:
     movie_date = data['boxOfficeResult']['showRange']
     movie_information=data['boxOfficeResult']['weeklyBoxOfficeList']
 
-    for i in range(10): # 여기서 range(10)
+    for i in range(10):
         movie_list = []
         results = {
             'movie_code' : movie_information[i]['movieCd'],

@@ -1,10 +1,9 @@
 #-*-coding:utf-8 -*-
 import requests
+import urllib.request
 import csv
 import json
 from time import sleep
-f = open('movie_naver.csv','a', encoding='utf-8' , newline = '')
-writer = csv.writer(f)
 
 naver_URI = 'https://openapi.naver.com/v1/search/movie.json?query='
 client_id = 'sc1OuIXuNEyPHrKuFavw'
@@ -16,17 +15,12 @@ code = {'20184105': '말모이', '20176251': '내안의 그놈', '20189463': '�
 
 for moviecode in code.keys():
     final_result = []
+    imageurl = []
     res = requests.get(naver_URI + code[moviecode], headers=headers)
     naverdata= res.json()
-    navermovie_information = [
-        moviecode,
-        naverdata['items'][0]['image'],
-        naverdata['items'][0]['link'],
-        naverdata['items'][0]['userRating']
-    ]
-    final_result += navermovie_information
+    navermovie_url = naverdata['items'][0]['image']
+    
+    urllib.request.urlretrieve(navermovie_url, f'images/{moviecode}.jpg')
     sleep(0.1)
-    writer.writerow(final_result)
-f.close()
 
 
