@@ -582,8 +582,20 @@ index.js
 
 
 - create.html. 인가요? index.html 인가요? 그러면 id 값 필요 없고 나머지는 다 id 있음
-
 - GET POST의 차이는 data에 영향을 주면 POST
-
 - form 태그를 써야 POST 에 담을 수 있다
+
+
+
+
+
+### 나중에 프로젝트시 pip 한 번에 다운받기
+
+```bash
+pip freeze > requirements.txt (requirements 텍스트파일에 install 되어 있는 pip 리스트 저장)
+
+pip install -r requirements.txt (한 번에 다운)
+```
+
+
 
