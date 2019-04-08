@@ -1,0 +1,6 @@
+<form action="/board/articles/create/" method="post">
+    {% csrf_token %}
+    <input name="input_title" type="text">
+    <textarea name="input_content" cols="30" rows="10"></textarea>
+    <button type="submit">CREATE!</button>
+</form>
