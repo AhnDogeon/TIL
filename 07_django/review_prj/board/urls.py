@@ -1,10 +1,9 @@
 from django.urls import path
 from . import views
-app_name = 'board'
 
 urlpatterns = [
-    path('index/', views.index), # DOMAIN/board/index
-    path('greeting/<str:name>/<str:role>/', views.greeting), # DOMAIN/board/greeting/dg
+    path('index/', views.index), # DOMAIN/board_ad/index
+    path('greeting/<str:name>/<str:role>/', views.greeting), # DOMAIN/board_ad/greeting/dg
     # Create
     # /articles/new => html # 새로 작성하는 화면
     path('articles/new/', views.article_new),
@@ -26,6 +25,5 @@ urlpatterns = [
     # Delete
     # /articles/1/delete => DB delete article id = 1
     path('articles/<int:id>/delete/', views.article_delete),
-
 
 ]
