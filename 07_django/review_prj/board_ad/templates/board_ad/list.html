@@ -1,13 +1,15 @@
 {% extends 'board/base.html' %}
 
 {% block body %}
-    <h1>Article LIST</h1>
-    <a href="/board/articles/new"><button>New article</button></a>
-    <ul>
-        {% for article in articles %}
-            <li>
-                <a href="/board/articles/{{ article.id }}">{{ article.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <h1>Posting LIST</h1>
+    <a href="{% url 'board_ad:new_posting' %}"><button>New posting</button></a>
+    {% if postings %}
+        <ul>
+            {% for posting in postings %}
+                <li>
+                    <a href="{% url 'board_ad:posting_detail' posting.id %}">{{ posting.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}
