@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'mton',
     'posts',
     # 'onetoone',
-    'onetomany',
+    # 'onetomany',
     'accounts',
 ]
 
@@ -119,6 +119,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False
+
+AUTH_USER_MODEL = 'auth.User'
 
 
 # Static files (CSS, JavaScript, Images)

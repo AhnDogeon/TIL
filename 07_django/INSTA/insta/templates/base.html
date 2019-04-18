@@ -9,6 +9,29 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+     <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        h1 {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: 700;
+        }
+        .posthead {
+            font-family: 'Nanum Gothic Coding';
+            font-weight: 700;
+            color: gray;
+        }
+        .profile_intro {
+            font-family: 'Open Sans';
+            font-weight: 400;
+        }
+        a:visited { color: black; text-decoration: none;}
+        a:hover { color: black; text-decoration: none;}
+    </style>
 </head>
 <body>
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light px-5">
@@ -22,21 +45,23 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
-            {#  로그인 되어 있을 때 #}
             {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">MyPage</a>
+                    <a class="nav-link" href="{% url 'posts:create_post' %}">New</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+                    <a class="nav-link" href="">{{ user.username }}</a>
                 </li>
-            {#  로그인 안되어 있을 때#}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:logout' %}">Log out</a>
+                </li>
+
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:signup' %}">New</a>
+                    <a class="nav-link" href="{% url 'accounts:login' %}">Log in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+                    <a class="nav-link" href="{% url 'accounts:signup' %}">Sign up</a>
                 </li>
             {% endif %}
         </ul>

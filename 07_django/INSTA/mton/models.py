@@ -4,25 +4,27 @@ from faker import Faker
 # Create your models here.
 faker = Faker()
 
+
 class Client(models.Model):
     name = models.CharField(max_length=30)
 
-    # class Meta:
-    #     ordering = ('name',)
-    #
-    # @classmethod
-    # def dummy(cls, n):
-    #     for i in range(n):
-    #         cls.objects.create(name=faker.name())
+    class Meta:
+        ordering = ('name',)
+
+    @classmethod
+    def dummy(cls, n):
+        for i in range(n):
+            cls.objects.create(name=faker.name())
+
 
 class Hotel(models.Model):
     name = models.CharField(max_length=30)
-    clients = models.ManyToManyField(Client)
+    clients = models.ManyToManyField(Client, related_name='hotels')
 
-    # @classmethod
-    # def dummy(cls, n):
-    #     for i in range(n):
-    #         cls.objects.create(name=faker.company())
+    @classmethod
+    def dummy(cls, n):
+        for i in range(n):
+            cls.objects.create(name=faker.company())
 
 """
 Student 1: N Enrolment N : 1 Lecture
@@ -38,7 +40,7 @@ class Student(models.Model):
 
 class Lecture(models.Model):
     title = models.CharField(max_length=100, default='')
-    students = models.ManyToManyField(Student) # query.py에 for문을 쟝고로 구현한 것
+    # students = models.ManyToManyField(Student) # query.py에 for문을 쟝고로 구현한 것
 
     def __str__(self):
         return f'{self.id}: {self.title}'
