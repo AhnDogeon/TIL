@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 from django.contrib.auth.decorators import login_required
 from .models import Post, Image, Comment
@@ -126,7 +126,7 @@ def create_comment(request, post_id):
         comment.user = request.user
         comment.post = post
         comment.save()
-        return redirect('posts:post_list')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/insta/'))
     # TODO: else: => if comment is not valid, then what?
 
 

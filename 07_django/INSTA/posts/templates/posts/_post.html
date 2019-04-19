@@ -21,7 +21,7 @@
         <img src="https://picsum.photos/600" alt="random-image" class="card-img-top" />
     {% endif %}
     <div class="card-body">
-        <p class="card-text">@{{ post.user.username }} {{post.content}}</p>
+        <p class="card-text"><a href="{% url 'accounts:user_detail' post.user.username %}">@{{ post.user.username }} </a>{{post.content}}</p>
         {% if user == post.user %}
             <form action="{% url 'posts:delete_post' post.id %}" method="post">
             {% csrf_token %}
@@ -46,7 +46,7 @@
     <div class="card-body">
             {% for comment in post.comment_set.all %}
                 <p class="card-text">
-                    <strong>{{ comment.user.username }}</strong> : {{ comment.comment }}
+                    <strong><a href="{% url 'accounts:user_detail' comment.user.username %}">{{ comment.user.username }}</a></strong> : {{ comment.comment }}
                 </p>
             {% empty %}
                 댓글 달기...
