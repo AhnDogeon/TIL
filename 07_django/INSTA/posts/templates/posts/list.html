@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <h1 class="mt-3">안도건짱</h1>
+    {% if h1 %}
+        <h1>{{ h1 }}</h1>
+    {% endif %}
+    <h2 class="mt-3">안도건짱</h2>
     <p class="profile_intro">Hello</p>
     <p class="posthead">인기 게시물</p>
     <section class="card-columns">

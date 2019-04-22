@@ -3,6 +3,7 @@ from django.views.decorators.http import require_GET,require_POST,require_http_m
 from .forms import CustomUserCreateForm, CustomUserAuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from posts.forms import CommentModelFrom
 from .models import User
 # from django.contrib.auth import get_user_model # 밑에랑 둘중하나 선택
@@ -36,7 +37,10 @@ def login(request):
        if request.method == 'POST':
            form = CustomUserAuthenticationForm(request, data=request.POST)
            if form.is_valid():
+               user = form.get_user()
                auth_login(request, form.get_user())
+               messages.add_message(request, messages.SUCCESS, f'Welcome back', {user.username})
+               messages.add_message(request, messages.INFO, f'Last login', {user.last_login})
                return redirect(request.GET.get('next') or 'posts:post_list')
        # 사용자가 로그인 화면을 요구할 때
        else:
@@ -48,6 +52,7 @@ def login(request):
 
 def logout(request):
    auth_logout(request)
+   messages.add_message(request, messages.SUCCESS, f'Logout Successfully')
    return redirect('posts:post_list')
 
 
@@ -57,6 +62,7 @@ def user_detail(request, username):
         'user_info': user_info,
         'comment_form': CommentModelFrom()
     })
+
 
 @login_required
 @require_POST
