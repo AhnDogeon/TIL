@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .bg {
+            background-color: #F7F7F7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <img id="dino" width="100px" src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/88/e5/36/88e536d4-8a08-7c3b-ad29-c4e5dabc9f45/AppIcon-1x_U007emarketing-sRGB-85-220-0-6.png/246x0w.jpg" alt="dino">
+</div>
+
+<script>
+    // 무엇을 언제 어떻게
+    // 무엇
+    const dino = document.querySelector('#dino');
+    // 무엇을 언제? 클릭하면
+    let x = 0;
+    let y = 0;
+
+    document.addEventListener('keydown', e => {
+        // 어떻게
+        // console.log(e)
+        if (e.code === 'Space') {
+            alert('크앙')
+        } else if (e.code ==='ArrowLeft') {
+            x -= 20;
+        } else if (e.code === 'ArrowRight') { // Up 키
+            x += 20;
+        } else if (e.code === 'ArrowUp') {
+            y -= 20;
+        } else if (e.code === 'ArrowDown') {
+            y += 20;
+        } else {
+            console.log('????');
+        }
+        dino.style.marginLeft = `${x}px`;
+        dino.style.marginTop = `${y}px`;
+    });
+</script>
+</body>
+</html>

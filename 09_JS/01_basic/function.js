@@ -24,7 +24,7 @@ let mul = function (num1, num2) {
 
     /*
         step 1: function 키워드를 없앤다
-        step 2: () 와 {} tkdldp => 를 넣는다.
+        step 2: () 와 {} 사이에 => 를 넣는다.
      */
 mul = (num1, num2) => {
     return num1 * num2
