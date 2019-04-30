@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="result-area">
+
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    // const getDogAndPush = () => {
+    //     axios.get('https://dog.ceo/api/breeds/image/random')
+    //         .then(response => response.data)
+    //         .then(data => {
+    //             const img = document.createElement('img');
+    //             img.src = data.message;
+    //             img.alt = 'DOG';
+    //             return img
+    //         })
+    //         .then(imgTag => document.querySelector('#result-area').append(imgTag))
+    //         .catch(err => console.error(err));
+    // };
+
+    const getDogAndPush = async () => {
+        const response = await axios.get('https://dog.ceo/api/breeds/image/random'); // 얘는 언제 도착할지 몰라서 기다려줌
+        const data = response.data;
+        const imgTag = document.createElement('img')
+        imgTag.src = data.message;
+        imgTag.alt = 'DOG';
+        document.querySelector('#result-area').appendChild(imgTag)
+    };
+
+    getDogAndPush();
+</script>
+</body>
+</html>

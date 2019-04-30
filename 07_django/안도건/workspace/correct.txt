@@ -1,0 +1,45 @@
+회원가입에서 if singup_form.is_valid 는 함수. 함수 호출 해야함. 검증 전체 실패 -20
+
+회원가입에서 ‘POST’ 요청이 들어오면, UserCreationForm(request.user) 가 아니라 UserCreationForm(request.POST) 로 사용자가 제출한 데이터를 검증해야함.
+기존 코드는 사용자를 새로 생성하면서 사용자 정보를 받아오려 하는 코드.
+
+만약 Form 이 UserCreationForm 이 아니라, AuthenticationForm 이라면, AuthenticationForm(request, request.user) 로 인증함.
+
+from django.forms import ModelForm 라면 ModelForm 을 바로 불러야 함.  ModelForm 사용 실패 -10
+from django import forms 일 경우에는 forms.ModelForm 으로 접근.
+
+import random
+random.sample()
+vs
+from random import sample
+sample()
+
+과 같은 원리
+
+ModelForm 은 class Meta 안에 fields 뿐만 아니라, 어떤 Model 에 대한 ModelForm 인지도 적어야함.
+model = Post 의 코드가 필요.
+
+위의 이유로 Post 생성 전체 실패. -20
+
+GET 요청이 들어왔을 때의 로직은 정답.
+
+POST 요청이 들어왔을 때의 로직에서 PostForm(request.user) 라고 작성. request.user 는 현재 로그인한 user 의 정보를 담고 있음. 사용자가 제출한 정보는 request.POST 에 있음. PostForm(request.POST) 가 정답.
+
+like(좋아요) 기능 views 에서 구현
+
+어떤 post에 좋아요를 누르는지 확인하려면, 우선 post 를 선택해야함. Post.objects.get() 이나 get_object_or_404() 를 사용해서 post 를 잡아야 함. 이러한 이유로 post 를 선택하기 위해 url 에 <int:post_id> 가 포함되는 것.
+
+post 가 없으므로, 현재 like 액션을 실행한 user 는 request.user 로 잘 잡았지만, post.like_users.all() 이 불가능 하기 때문에, 판별 자체가 불가능.
+
+if request.user in post.like_users.all():  # 좋아요 한 user 들중에 현재 user 가 있으면
+  post.like_users.remove(request.user)  # 삭제 (post.like_user 가 아니라 like_users!)
+else:
+  post.like_users.add(request.user)
+
+like_users.add() 와 like_users.remove() 로 관계를 추가/삭제 함. -10
+
+list.html 에 like 관련 UI 확인 -10
+
+post.like_users.count 로 post 의 like_users 카운트 가능. a 태그에서 url 의 경우에는, 위에서 언급한대로 어떤 게시글에 좋아요 했는지 확인해야 하기 때문에, {% url ‘posts:like’ post.id %} 를 같이 넘겨야 함.
+
+ㅜㅠ 어느정도 감을 잡았는데, 확실하게 모든 코드들을 이해하지 못했을 때 많이 보이는 코드 전개입니다.. 오답 정정이랑 작성하신 코드 꼭 비교하시고 질문있으시면 바로 가져오세요!!
