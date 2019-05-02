@@ -35,5 +35,36 @@
     {% endblock %}
 </div>
 {% include '_scripts.html' %}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    function getCookies() {
+        const cookieSet = {};
+        document.cookie.split('; ').forEach(cookieString => {
+            const kv = cookieString.split('=');
+            cookieSet[kv[0]] = kv[1];
+        });
+        return cookieSet
+    }
+
+    const likeButtons = document.querySelectorAll('.like-button');
+
+    likeButtons.forEach(button => {
+        button.addEventListener('click', e => {
+            const postId = button.dataset.id;
+            const URL = `/insta/${postId}/like/`;
+            axios.get(URL)
+                .then(response => {
+                    const likeCountArea = document.querySelector(`#like-count-${postId}`)
+                    console.log(response)
+                    likeCountArea.innerHtml = response.data.likeCount;
+                    if (button.innerHTML === '좋아요') {
+                        button.innerHTML = '안좋아요'
+                    } else {
+                        button.innerHTML = '좋아요'
+                    }
+                })
+        })
+    });
+</script>
 </body>
 </html>

@@ -6,13 +6,14 @@
 </head>
 <body>
 <div>
-    <label for="user-input">origin</label>
-    <input autofocus type="text" id="user-input">
-</div>
-<div>
-    <label for="user-n">n</label>
+    <label for="user-n">몇 칸 밀까요</label>
     <input type="text" id="user-n">
 </div>
+<div>
+    <label for="user-input">밀어봅시다</label>
+    <input autofocus type="text" id="user-input">
+</div>
+
 
 <h1 id="user-output">
 
@@ -20,12 +21,30 @@
 <script>
     const inputArea = document.querySelector('#user-input');
     const resultArea = document.querySelector('#user-output');
+    const nArea = document.querySelector('#user-n');
 
+    // const inputArea = document.querySelector('#user-input');
+    // const resultArea = document.querySelector('#user-output');
+    // const nArea = document.querySelector('#user-n');
+    //
+    // inputArea.addEventListener('input', e => {
+    //     var newArray = [...inputArea.value];
+    //     var ans = [];
+    //     for (let i = 0; i < newArray.length; i++) {
+    //         ans.push(String.fromCharCode(newArray[i].charCodeAt() + Number(nArea.value)));
+    //     }
+    //     resultArea.innerHTML = ans.join('');
+    // })
     inputArea.addEventListener('input', e => {
-        resultArea.innerHTML = inputArea.value;
-        'a'.charCodeAt(); // 97
-        String.fromCharCode(97); // a
-        String.fromCharCode('a'.charCodeAt() + 1); // b
+        const n = Number(nArea.value)
+        const charArray = inputArea.value.split('');
+        const resultString = charArray.map(char => {
+            let charNumber = char.charCodeAt();
+            charNumber += n;
+            return String.fromCharCode(charNumber);
+        }).join('');
+        // const resultString = charArray.map(char => String.fromCharCode(char.CharCodeAt() + n).join(''))
+        resultArea.innerHTML = resultString;
     })
 </script>
 </body>

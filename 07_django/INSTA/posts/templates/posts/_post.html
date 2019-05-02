@@ -32,6 +32,7 @@
     </div>
 
     <div class="card-body">
+{#    좋아요 버튼 1#}
         <form action="{% url 'posts:toggle_like' post.id %}" method="POST">
             {% csrf_token %}
             <input type="submit" value="좋아요">
@@ -39,7 +40,14 @@
         {% if post.like_users.all %}
             <p>❤ x {{ post.like_users.count }}</p>
         {% endif %}
-
+    {#    좋아요 버튼 2#}
+        <button class="like-button" data-id="{{ post.id }}" data-user="{{ post.user }}">
+            {% if user in post.like_users.all %}
+                안좋아요
+            {% else %}
+                좋아요
+            {% endif %}
+        </button>
     </div>
 
 

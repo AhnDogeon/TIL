@@ -13,5 +13,5 @@ urlpatterns = [
     path('<int:post_id>/like/', views.toggle_like, name='toggle_like'),
 
     #/insta/tags/hihi => #hihi를 포함한 모든 posts 보기.for
-    path('tags/<str:tag_name>/', views.tag_posts.list, name='tag_posts_list')
+    path('tags/<str:tag_name>/', views.tag_posts_list, name='tag_posts_list')
 ]
