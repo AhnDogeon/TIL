@@ -23,6 +23,6 @@ const avengers = [
     {name: 'Thor'},
 ];
 
-const a = avengers.find(avenger => avenger.name ==='Tony Stark');
+const a = avengers.find(avenger => avenger.main ==='Tony Stark');
 
 console.log(a)

@@ -7,6 +7,10 @@
     <title>insta</title>
     {% include '_cdns.html' %}
      <style>
+         .activate {
+             color:dodgerblue;
+         }
+
         body {
             font-family: 'Nanum Gothic', sans-serif;
         }
@@ -37,13 +41,13 @@
 {% include '_scripts.html' %}
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    function getCookies() {
+    function getCookies(key='') {
         const cookieSet = {};
         document.cookie.split('; ').forEach(cookieString => {
             const kv = cookieString.split('=');
             cookieSet[kv[0]] = kv[1];
         });
-        return cookieSet
+        return key ? cookieSet[key] : cookieSet
     }
 
     const likeButtons = document.querySelectorAll('.like-button');
@@ -52,15 +56,21 @@
         button.addEventListener('click', e => {
             const postId = button.dataset.id;
             const URL = `/insta/${postId}/like/`;
-            axios.get(URL)
+
+            // request 에 cookie 중에 csrftoken 이라는 key 값을 가진 친구를 같이 보내라
+            axios.defaults.xsrfCookieName = 'csrftoken';
+            axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+            // 이 request 는 XHR 방식으로 보내는 것입니다.
+            axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+            console.log(axios.defaults);
+            axios.post(URL)
                 .then(response => {
-                    const likeCountArea = document.querySelector(`#like-count-${postId}`)
-                    console.log(response)
+                    const likeCountArea = document.querySelector(`#like-count-${postId}`);
                     likeCountArea.innerHtml = response.data.likeCount;
-                    if (button.innerHTML === '좋아요') {
-                        button.innerHTML = '안좋아요'
+                    if (response.data.is_active) {
+                        e.target.classList.add('activate');
                     } else {
-                        button.innerHTML = '좋아요'
+                        e.target.classList.remove('activate');
                     }
                 })
         })

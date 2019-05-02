@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -154,18 +154,26 @@ def create_comment(request, post_id):
     # TODO: else: => if comment is not valid, then what?
 
 
-@require_GET
 @login_required
+@require_POST
 def toggle_like(request, post_id):
-    user = request.user
-    post = get_object_or_404(Post, id=post_id)
+    if request.is_ajax():
+        user = request.user
+        post = get_object_or_404(Post, id=post_id)
+        is_active = True
+        # if post.like_users.filter(id=user.id).exists():  # 찾으면, [value] / 없으면, []
+        if user in post.like_users.all():
+            post.like_users.remove(user)
+            is_active = False
+        else:
+            post.like_users.add(user)
 
-    # if post.like_users.get(id=user.id).exist(): # 찾으면, [value] / 없으면, []
-    if user in post.like_users.all():
-        post.like_users.remove(user)
+        return JsonResponse({
+            'likeCount': post.like_users.count(),
+            'is_active': is_active,
+        })
     else:
-        post.like_users.add(user)
-    return JsonResponse({'likeCount': post.like_users.count()})
+        return HttpResponseBadRequest()
 
 
 @require_GET
