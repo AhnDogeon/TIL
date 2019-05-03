@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-on:input="changeTitle($event, '따봉')">
+    <p>{{ msg }}</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app', // Vue instance 와 Html element를 Binding
+        data : { // 이 script 가 실행되는 최초의 data initializing
+            msg: 'Hi',
+        },
+        methods: { // 이 script 가 실행되는 최초의 data initializing
+            changeTitle: function(e, word) {
+                this.msg = e.target.value;
+                this.msg += word;
+            }
+        },
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+<!--    한 번만 render하고 다시 안본다. 그래서 안바뀜-->
+    <h1 v-once>{{ title }}</h1>
+<!--    text 부분에서는 문제없이 동작한다.-->
+    <p>{{ sayHello() }}</p>
+<!--    단, 링크 걸어주는 부분은 안됨-->
+<!--    <a href="{{ link }}">Google</a>-->
+<!--    그래서 이렇게 써줌-->
+    <div>
+        <a v-bind:href="link">Never</a>
+    </div>
+    <div v-html="rawHTML">
+
+    </div><!-- XSS: Cross Site Scripting -->
+</div>
+<script src="./vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello',
+            link: 'https://google.com',
+            rawHTML: '<a href="https://naver.com">gOOGLE</a>'
+        },
+        methods: {
+            sayHello() {
+                this.title = 'GoodBye';
+                return this.title;
+            }
+        },
+    })
+</script>
+</body>
+</html>
