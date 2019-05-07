@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+<!--    if는 if조건 충족되지 않으면 아예 나오지 않는다.-->
+    <h2 v-if="eng">Hi</h2>
+<!--    왔다갔다가 자주 있는 애들은 show를 쓴다!! show는 그냥 보여줄지 말지로 결정함!-->
+    <h2 v-show="kor">안녕</h2>
+
+    {{ message }}
+    {{ status ? 'Good' : 'Bad'}}
+<!--   filters가 적용이 되면 | 기준으로 message가 capitalize의 인자로 넘어간다.-->
+    {{ message | capitalize }}
+<!--    밑의 status가 true일 때만 나오고 false면 f12누르고 나오는 마크업에도 등장하지 않는다.-->
+<!--    template 태그는 v-if 랑만 쓴다!-->
+    <template v-if="status">
+        <h1>Good</h1>
+    </template>
+
+    <p v-if="type === 'A'">A</p>
+    <p v-else-if="type === 'B'">B</p>
+    <p v-else-if="type === 'C'">C</p>
+    <p v-else>?</p>
+</div>
+<script src="./vue.js"></script>
+<script>
+    new Vue({
+        el: `#app`,
+        data: {
+            message: 'ssafy',
+            type: 'A',
+            status: true,
+            eng: false,
+            kor: true,
+        },
+        methods: {},
+        filters: {
+            capitalize (value) {
+                if (!value) return '';
+                value = value.toString();
+                return value.charAt(0).toUpperCase() + value.slice(1);
+            },
+        },
+    })
+</script>
+</body>
+</html>

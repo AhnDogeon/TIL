@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <a v-bind:href="url">Google</a>
+    <a :href="url">Google</a>
+    <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo()">
+    <button v-on:click="addTodo()">todo</button>
+<!--    v-on 대신 @로 축약해서 쓰기도 한다. v-on만 @로 적용 가능-->
+    <button @click="clearCompleted()">ClearCompleted</button>
+    <ol v-if="todos">
+        <!--        느낌표로 반대로 가능-->
+        <li v-for="todo in todos" v-if="todo.completed === false" v-on:click="check(todo)">
+            {{ todo.content }}
+        </li>
+        <!--        <li v-else-if=""></li>-->
+        <li v-else v-on:click="check(todo)">[완료!]</li>
+    </ol>
+</div>
+<script src="./vue.js"></script>
+<script>
+    const app = new Vue({
+        el: `#app`,
+        data: {
+            todos: [
+                {
+                    content: '저녁 메뉴 고민하기',
+                    completed: true,
+                },
+                {
+                    content: '시험공부하기',
+                    completed: false,
+                },
+                {
+                    content: '집 살 걱정하기',
+                    completed: false,
+                },
+                {
+                    content: '행복하기',
+                    completed: false,
+                },
+            ],
+            newTodo: '',
+            url: 'https://google.com',
+        },
+        methods: {
+            check: function (todo = {}) {
+                todo.completed = !todo.completed;
+            },
+            addTodo() {
+                if (this.newTodo) {
+                    this.todos.push({
+                        content: this.newTodo,
+                        completed: false,
+                    });
+                    this.newTodo = '';
+                }
+
+            },
+            clearCompleted() {
+                // this.todos = this.todos.filter(todo => !todo.completed);
+                const newTodos = this.todos.filter(todo => {
+                    if (todo.completed) {
+                    } else {
+                        return true
+                    }
+                });
+                this.todos = newTodos;
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,3 +1,16 @@
+function myFunc () {
+    return n => n + 1;
+    // return function (n) {
+    //     return n + 1; // 위랑 같은 말
+    // }
+}
+
+const num_101 = myFunc()(100); // 101이 되도록 하세요. 이걸로 시험대비
+console.log(num_101);
+
+// const nPlusOne = myFunc();
+// const num_101 = nPlusOne(100);
+// console.log(num_101);
 // 인자로 배열을 받는다. 해당 배열의 모든 요소를 더한 숫자를 return
 const numbersEachAdd = numbers => {
     let acc = 0;
@@ -53,3 +66,20 @@ const adder = (number, sum=0) => {
 };
 
 numberEach([1, 2, 3, 4, 5], adder);
+
+
+// 시험 준비
+function func1 (cb1, cb2) {
+    console.log(1);
+    cb1(cb2(cb1))
+}
+
+function func2 (callback) {
+    console.log(2);
+}
+
+function func3 (callback) {
+    console.log(3);
+}
+
+func1(func2, func3);

@@ -18,7 +18,7 @@ numbers; // [1, 2, 3, 4, "a"]
 numbers.pop(); // "a"
 numbers; // [1, 2, 3, 4]
 
-numbers.unshift('a'); // 5 : new length
+console.log(numbers.unshift('a')); // 5 : new length
 numbers; // ["a", 1, 2, 3, 4]
 numbers.shift(); // "a"
 numbers; // [1, 2, 3, 4]
@@ -38,7 +38,7 @@ numbers.indexOf('a'); // 4
 numbers.indexOf('b'); // -1 => 없음
 
 numbers; // [1, 2, 3, 4, 'a', 'a']
-numbers.join('-'); //'1-2-3-4-a-a'
-numbers.join(''); // '1234aa'
-numbers.join(); // '1,2,3,4,a,a'
+console.log(numbers.join('-')); //'1-2-3-4-a-a'
+console.log(numbers.join('')); // '1234aa'
+console.log(numbers.join()); // '1,2,3,4,a,a'
 

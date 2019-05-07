@@ -24,6 +24,13 @@
         // ES6+
         const number = 1;
         number = 2; // 이렇게 안됨! Error
+
+        const myArray = [];
+        myArray.push(1); // 이건 됨!
+        myArray.join(''); // 이것도 됨! 할당만 다시 안되면 된다!
+
+        myArray = [1] // 이건 안됨!!
+
     </script>
 </body>
 </html>
