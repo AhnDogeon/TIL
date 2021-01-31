@@ -15,8 +15,10 @@ class Car():
     windows = 4
     seats = 4
 
+# kia와 hyundai instance 생성
+# intro of OOP
 kia = Car()
 kia.color = 'white'
 
-print(kia.wheels)
-print(kia.color)
+hyundai = Car()
+hyundai.color = 'black'
