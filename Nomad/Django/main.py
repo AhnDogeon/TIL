@@ -65,3 +65,14 @@ ferrari.take_off()
 ferrari.wheels = 5
 # super 함수로 부모 클래스의 init 메소드를 가져와서 사용가능
 print(ferrari.color)
+
+# 설날에 커밋을 못하다니 ㅠㅠ
+class Pocketmon(mon):
+    def __init__(self):
+        self.name = '파이리'
+    
+    def attack(self):
+        print("공격")
+
+    def move(self):
+        print("이동")
